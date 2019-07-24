@@ -56,6 +56,23 @@
           <div class="invalid-feedback">Please fill out this field.</div>
         </div>
       
+      <div class="form-group row">
+    <div class="hidden-xs col-sm-3">
+        <label for="phoneNumberParts">Phone Number<span style="color: red"><b>*</b></span></label>
+      </div>
+    <div class="hidden-xs col-sm-9 col-xs-9">
+      <div class="form-inline" >
+        <dl id="phoneNumberParts" style="display: flex; flex-direction: row;">
+          <span class="form-control-static">(</span>
+            <input type="text" class="form-control grouped-field" id="phonePrefix" placeholder="999" size="3" maxlength="3">
+            <span class="form-control-static">) </span>
+            <input type="text" class="form-control grouped-field" id="phonePrefix" placeholder="999" size="3" maxlength="3">
+            <span class="form-control-static">-</span>
+            <input type="text" class="form-control grouped-field" id="phonePrefix" placeholder="9999" size="4" maxlength="4">
+        </dl>
+      </div>
+    </div>
+  </div>
 
     <div class="form-group row">
         <div class="col-sm-3">
@@ -70,7 +87,7 @@
         <div class="col-sm-3">
           <label for="uname">Address 2:</label></div>
           <div class="col">
-          <input type="text" class="form-control" id="uname" placeholder="Apt, suite, etc" name="uname" required></div>
+          <input type="text" class="form-control" id="uname" placeholder="Apt, suite, etc" name="uname"></div>
         </div>
 
 
@@ -79,7 +96,7 @@
       <div class="col-sm-3">
           <label for="uname">City<span style="color: red"><b>*</b></span></label></div>
         <div class="col">
-          <input type="text" class="form-control" id="city" placeholder="example : Fremont" name="uname" required></div>
+          <input type="text" class="form-control" id="city" placeholder="San Francisco" name="uname" required></div>
           <div class="valid-feedback">Valid.</div>
           <div class="invalid-feedback">Please fill out this field.</div>
       </div>
@@ -88,8 +105,8 @@
         <div class="col-sm-3">
           <label for="uname">State<span style="color: red"><b>*</b></span></label></div>
           <div class="col">
-          <select class="custom-select">
-            <option selected>Choose one</option>
+          <select class="custom-select" required>
+            <option value="0" selected>Choose one</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
@@ -150,7 +167,7 @@
         <div class="col-sm-3">
           <label for="uname">Pincode<span style="color: red"><b>*</b></span></label></div>
           <div class="col">
-          <input type="text" class="form-control" id="pincode" placeholder="ex:94536" name="uname" required></div>
+          <input type="text" class="form-control" id="pincode" placeholder="94536" name="uname" required></div>
           <div class="valid-feedback">Valid.</div>
           <div class="invalid-feedback">Please fill out this field.</div>
       </div>
@@ -161,7 +178,7 @@
          <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Education level</label></div>
          <div class="col">
           <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
-           <option selected>Choose one</option>
+           <option value="0" selected>Choose one</option>
            <option value="1">High School</option>
            <option value="2">College</option>
            <option value="3">Graduate Studies</option>
@@ -200,24 +217,6 @@
   </div>
 
 
-  <div class="form-group row">
-    <div class="hidden-xs col-sm-3">
-        <label for="phoneNumberParts">Phone Number<span style="color: red"><b>*</b></span></label>
-      </div>
-    <div class="hidden-xs col-sm-9 col-xs-9">
-      <div class="form-inline" >
-        <dl id="phoneNumberParts" style="display: flex; flex-direction: row;">
-          <span class="form-control-static">(</span>
-            <input type="text" class="form-control grouped-field" id="phonePrefix" placeholder="999" size="3" maxlength="3">
-            <span class="form-control-static">) </span>
-            <input type="text" class="form-control grouped-field" id="phonePrefix" placeholder="999" size="3" maxlength="3">
-            <span class="form-control-static">-</span>
-            <input type="text" class="form-control grouped-field" id="phonePrefix" placeholder="9999" size="4" maxlength="4">
-        </dl>
-      </div>
-    </div>
-  </div>
-
 <div class="form-group">
     <div class="g-recaptcha" data-sitekey="6LcKxa4UAAAAADJ6F9ZjhuXSCUIgUy2z2EDZj6qy" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
     <div class="help-block with-errors"></div>
@@ -225,7 +224,7 @@
 
     <div class="form-group form-check">
       <label class="form-check-label">
-        <input class="form-check-input" type="checkbox" name="remember" required> I agree to the terms and condition.<span style="color: red"><b>*</b></span>
+        <input class="form-check-input" type="checkbox" name="remember" required> I agree to the Terms and Condition.<span style="color: red"><b>*</b></span>
         <div class="valid-feedback">Valid.</div>
         <div class="invalid-feedback">Check this checkbox to continue.</div>
       </label>
