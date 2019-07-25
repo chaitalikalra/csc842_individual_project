@@ -63,7 +63,8 @@
     <div class="container" style="max-width: 600px">
         <div class="alert alert-dark" role="alert">CSC 642-842 Summer 2019 Individual Assignment Chaitali Kalra</div>
         <h2 align="center">Registration Form</h2>
-        <form action="/action_page.php" class="needs-validation" id="my-form" method="POST" novalidate>
+        <form action="{{ url_for('results') }}" class="needs-validation" id="my-form" method="POST" novalidate>
+            <input type="hidden" id="verify-captcha" value="_C@PtCh@_">
             <div class="form-row">
                 <div class="col">
                     <div class="form-group">
@@ -232,7 +233,8 @@
                 <div class="col">
                     <div class="form-group">
                         <div class="g-recaptcha" data-sitekey="6LcKxa4UAAAAADJ6F9ZjhuXSCUIgUy2z2EDZj6qy" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
-                        <div class="help-block with-errors"></div>
+                        <input type="hidden" id="verify-captcha2" value="" data-parsley-equalto="#verify-captcha" data-parsley-error-message="Please verify that you are not a robot." required>
+                        <div class="invalid-feedback"></div>
                     </div>
                 </div>
             </div>
@@ -251,6 +253,11 @@
         </form>
     </div>
     <script>
+
+    var verifyRecaptchaCallback = function(response) {
+        $('#verify-captcha2').val($('#verify-captcha').val());
+        $('#verify-captcha2').parsley().reset()
+      };
     // Parsely Form Validation
 
     // Parsley plugin initialization with tweaks to style Parsley for Bootstrap 4
@@ -259,7 +266,9 @@
         successClass: 'is-valid', // Comment this option if you don't want the field to become green when valid. Recommended in Google material design to prevent too many hints for user experience. Only report when a field is wrong.
         errorsWrapper: '<span class="form-text text-danger"></span>',
         errorTemplate: '<span></span>',
-        trigger: 'change'
+        trigger: 'change',
+        excluded: 'input[type=button], input[type=submit], input[type=reset]',
+        inputs: 'input, textarea, select, input[type=hidden], :hidden',
     }) /* If you want to validate fields right after page loading, just add this here : .validate()*/ ;
 
 
