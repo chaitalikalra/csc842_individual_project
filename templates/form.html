@@ -69,14 +69,14 @@
                 <div class="col">
                     <div class="form-group">
                         <label for="firstname">First Name:<span style="color: red"><b>*</b></span></label>
-                        <input type="text" class="form-control" id="firstname" placeholder="First Name" name="firstname" maxlength="40" data-parsley-required-message="Please enter your first name." data-parsley-maxlength-message="First name must be 40 characters or fewer." required>
+                        <input type="text" class="form-control" id="firstname" placeholder="First Name" name="firstname" maxlength="40" pattern="^[A-Za-z\-\s]+$" data-parsley-pattern-message="Name must contain only alphabets, hyphen or whitespace" data-parsley-required-message="Please enter your first name." data-parsley-maxlength-message="First name must be 40 characters or fewer." required>
                         <div class="invalid-feedback"></div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         <label for="lastname">Last Name:<span style="color: red"><b>*</b></span></label>
-                        <input type="text" class="form-control" id="lastname" placeholder="Last Name" name="lastname" maxlength="40" data-parsley-required-message="Please enter your last name." data-parsley-maxlength-message="Last name must be 40 characters or fewer." required>
+                        <input type="text" class="form-control" id="lastname" placeholder="Last Name" name="lastname" maxlength="40" pattern="^[A-Za-z\-\s]+$" data-parsley-pattern-message="Name must contain only alphabets, hyphen or whitespace" data-parsley-required-message="Please enter your last name." data-parsley-maxlength-message="Last name must be 40 characters or fewer." required>
                         <div class="invalid-feedback"></div>
                     </div>
                 </div>
