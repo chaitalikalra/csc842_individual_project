@@ -99,7 +99,7 @@
                 <div class="row">
                     <div class="col">
                         <label for="address1">Address 1:<span style="color: red"><b>*</b></span></label>
-                        <input type="text" class="form-control" id="address1" placeholder="Street Address" name="address1" maxlength="40" data-parsley-type="alphanum" data-parsley-required-message="Please enter your address." data-parsley-type-message="Address must be alphanumeric." data-parsley-maxlength-message="Address must be 40 characters or fewer." required>
+                        <input type="text" class="form-control" id="address1" placeholder="Street Address" name="address1" maxlength="40" pattern="^[\w\-\s]+$" data-parsley-required-message="Please enter your address." data-parsley-pattern-message="Address must only contain alphabets, digits or whitespace." data-parsley-maxlength-message="Address must be 40 characters or fewer." required>
                         <div class="invalid-feedback"></div>
                     </div>
                 </div>
@@ -108,7 +108,7 @@
                 <div class="row">
                     <div class="col">
                         <label for="address2">Address 2:</label>
-                        <input type="text" class="form-control" id="address2" placeholder="Apt, suite, etc." name="address2" data-parsley-type="alphanum" data-parsley-type-message="Address must be alphanumeric.">
+                        <input type="text" class="form-control" id="address2" placeholder="Apt, suite, etc." name="address2" pattern="^[\w\-\s]+$" data-parsley-pattern-message="Address must only contain alphabets, digits or whitespace.">
                         <div class="invalid-feedback"></div>
                     </div>
                 </div>
@@ -117,7 +117,7 @@
                 <div class="col">
                     <div class="form-group">
                         <label for="city">City<span style="color: red"><b>*</b></span></label>
-                        <input type="text" class="form-control" id="city" placeholder="San Francisco" name="city" maxlength="40" data-parsley-type="alphanum" data-parsley-type-message="City must be alphanumeric." data-parsley-required-message="Please enter your city." data-parsley-maxlength-message="City must be 40 characters or fewer." required>
+                        <input type="text" class="form-control" id="city" placeholder="San Francisco" name="city" maxlength="40" pattern="^[\w\-\s]+$" data-parsley-pattern-message="City must only contain alphabets, digits or whitespace." data-parsley-required-message="Please enter your city." data-parsley-maxlength-message="City must be 40 characters or fewer." required>
                         <div class="invalid-feedback"></div>
                     </div>
                 </div>
@@ -193,13 +193,13 @@
                 <div class="col">
                     <div class="form-group">
                         <div class="dropdown">
-                            <label for="uname">Education Level</label>
-                            <select class="custom-select">
+                            <label for="education">Education Level</label>
+                            <select class="custom-select" id="education", name="education">
                                 <option value="" selected>Choose one</option>
-                                <option value="1">High School</option>
-                                <option value="2">College</option>
-                                <option value="3">Graduate Studies</option>
-                                <option value="4">PHP</option>
+                                <option value="High School">High School</option>
+                                <option value="College">College</option>
+                                <option value="Graduate Studies">Graduate Studies</option>
+                                <option value="PhD">PhD</option>
                             </select>
                         </div>
                     </div>
@@ -209,12 +209,12 @@
                 <div class="col">
                     <div class="form-group">
                         <div class="dropdown">
-                            <label for="uname">Annual Income</label>
-                            <select class="custom-select" novalidate>
+                            <label for="income">Annual Income</label>
+                            <select class="custom-select" id="income" name="income" novalidate>
                                 <option value="" selected>Choose one</option>
-                                <option value="1">Less than $50,000</option>
-                                <option value="2">Between $50,000 - $100,000</option>
-                                <option value="3">Greater than $100,000</option>
+                                <option value="Less than $50,000">Less than $50,000</option>
+                                <option value="Between $50,000 - $100,000">Between $50,000 - $100,000</option>
+                                <option value="Greater than $100,000">Greater than $100,000</option>
                             </select>
                         </div>
                     </div>
