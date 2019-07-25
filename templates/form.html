@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parsley.js/2.9.1/parsley.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <style>
@@ -62,61 +63,67 @@
     <div class="container" style="max-width: 600px">
         <div class="alert alert-dark" role="alert">CSC 642-842 Summer 2019 Individual Assignment Chaitali Kalra</div>
         <h2 align="center">Registration Form</h2>
-        <form action="/action_page.php" class="needs-validation" novalidate>
+        <form action="/action_page.php" class="needs-validation" id="my-form" method="POST" novalidate>
             <div class="form-row">
                 <div class="col">
                     <div class="form-group">
-                        <label for="uname">First Name:<span style="color: red"><b>*</b></span></label><input type="text" class="form-control" id="uname" placeholder="First Name" name="uname" required>
-                        <div class="invalid-feedback">Please fill out this field.</div>
+                        <label for="firstname">First Name:<span style="color: red"><b>*</b></span></label>
+                        <input type="text" class="form-control" id="firstname" placeholder="First Name" name="firstname" maxlength="40" data-parsley-required-message="Please enter your first name." data-parsley-maxlength-message="First name must be 40 characters or fewer." required>
+                        <div class="invalid-feedback"></div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
-                        <label for="uname">Last Name:<span style="color: red"><b>*</b></span></label><input type="text" class="form-control" id="address" placeholder="Last Name" name="uname" required>
-                        <div class="invalid-feedback">Please fill out this field.</div>
+                        <label for="lastname">Last Name:<span style="color: red"><b>*</b></span></label>
+                        <input type="text" class="form-control" id="lastname" placeholder="Last Name" name="lastname" maxlength="40" data-parsley-required-message="Please enter your last name." data-parsley-maxlength-message="Last name must be 40 characters or fewer." required>
+                        <div class="invalid-feedback"></div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <div class="form-group">
-                        <label for="email">Email Address:</label><span style="color: red"><b>*</b></span>
-                        <input type="email" class="form-control" id="pwd" placeholder="Enter your email address" name="uname" required>
-                        <div class="invalid-feedback">Please fill out this field.</div>
+                        <label for="email">Email:</label><span style="color: red"><b>*</b></span>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email" name="email" data-parsley-error-message="Please enter a valid email." required>
+                        <div class="invalid-feedback"></div>
                     </div>
                     <div class="form-group">
-                        <label for="email">Confirm Email Address:</label><span style="color: red"><b>*</b></span>
-                        <input type="email" class="form-control" id="pwd" placeholder="Re-enter your email address" name="uname" required>
-                        <div class="invalid-feedback">Please fill out this field.</div>
+                        <label for="confirmemail">Confirm Email:</label><span style="color: red"><b>*</b></span>
+                        <input type="text" class="form-control" id="confirmemail" placeholder="Enter your email again" name="confirmemail" data-parsley-equalto="#email" data-parsley-required-message="Please enter your email again." data-parsley-equalto-message="Emails must match." required>
+                        <div class="invalid-feedback"></div>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="row">
                     <div class="col">
-                        <label for="uname">Address 1:<span style="color: red"><b>*</b></span></label><input type="text" class="form-control" id="uname" placeholder="Street Address" name="uname" required>
-                        <div class="invalid-feedback">Please fill out this field.</div>
+                        <label for="address1">Address 1:<span style="color: red"><b>*</b></span></label>
+                        <input type="text" class="form-control" id="address1" placeholder="Street Address" name="address1" maxlength="40" data-parsley-type="alphanum" data-parsley-required-message="Please enter your address." data-parsley-type-message="Address must be alphanumeric." data-parsley-maxlength-message="Address must be 40 characters or fewer." required>
+                        <div class="invalid-feedback"></div>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="row">
                     <div class="col">
-                        <label for="uname">Address 2:</label><input type="text" class="form-control" id="uname" placeholder="Apt, suite, etc." name="uname">
+                        <label for="address2">Address 2:</label>
+                        <input type="text" class="form-control" id="address2" placeholder="Apt, suite, etc." name="address2" data-parsley-type="alphanum" data-parsley-type-message="Address must be alphanumeric.">
+                        <div class="invalid-feedback"></div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <div class="form-group">
-                        <label for="uname">City<span style="color: red"><b>*</b></span></label><input type="text" class="form-control" id="city" placeholder="San Francisco" name="uname" required>
-                        <div class="invalid-feedback">Please fill out this field.</div>
+                        <label for="city">City<span style="color: red"><b>*</b></span></label>
+                        <input type="text" class="form-control" id="city" placeholder="San Francisco" name="city" maxlength="40" data-parsley-type="alphanum" data-parsley-type-message="City must be alphanumeric." data-parsley-required-message="Please enter your city." data-parsley-maxlength-message="City must be 40 characters or fewer." required>
+                        <div class="invalid-feedback"></div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
-                        <label for="uname">State<span style="color: red"><b>*</b></span></label>
-                        <select class="custom-select" required>
+                        <label for="state">State<span style="color: red"><b>*</b></span></label>
+                        <select class="custom-select" id="state" name="state" data-parsley-required-message="Please select your state." required>
                             <option value="" selected>Choose one</option>
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
@@ -170,13 +177,14 @@
                             <option value="WI">Wisconsin</option>
                             <option value="WY">Wyoming</option>
                         </select>
-                        <div class="invalid-feedback">Please fill out this field.</div>
+                        <div class="invalid-feedback"></div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
-                        <label for="uname">ZIP Code<span style="color: red"><b>*</b></span></label><input type="text" class="form-control" id="pincode" placeholder="94536" name="uname" required>
-                        <div class="invalid-feedback">Please fill out this field.</div>
+                        <label for="zip">ZIP Code<span style="color: red"><b>*</b></span></label>
+                        <input type="text" class="form-control" id="zip" placeholder="94536" name="zip" minlength="5" maxlength="5" data-parsley-type="digits" data-parsley-error-message="Please enter a valid ZIP code." required>
+                        <div class="invalid-feedback"></div>
                     </div>
                 </div>
             </div>
@@ -214,9 +222,9 @@
             <div class="row">
                 <div class="col">
                     <div class="form-group">
-                        <label for="phoneNumberParts">Phone Number<span style="color: red"><b>*</b></span><abbr title="Only needed to contact you" rel="tooltip"><img src="https://shots.jotform.com/kade/Screenshots/blue_question_mark.png" height="13px" /></abbr></label>
-                        <input type="text" class="form-control" id="uname" placeholder="444-431-4532" name="phoneno" required>
-                        <div class="invalid-feedback">Please fill out this field.</div>
+                        <label for="phoneno">Phone Number<span style="color: red"><b>*</b></span><abbr title="Only needed to contact you." rel="tooltip"><img src="https://shots.jotform.com/kade/Screenshots/blue_question_mark.png" height="13px" /></abbr></label>
+                        <input type="text" class="form-control" id="phoneno" placeholder="8009001000" name="phoneno" minlength="10" maxlength="10" data-parsley-type="digits" data-parsley-error-message="Please enter a valid phone number." required>
+                        <div class="invalid-feedback"></div>
                     </div>
                 </div>
             </div>
@@ -232,8 +240,8 @@
                 <div class="col">
                     <div class="form-group form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" name="remember" required> I agree to the Terms and Conditions<span style="color: red"><b>*</b></span>
-                            <div class="invalid-feedback">Check this checkbox to continue.</div>
+                            <input class="form-check-input" type="checkbox" name="toc" id="toc" data-parsley-error-message="Please agree to the Terms and Conditions." required> I agree to the Terms and Conditions<span style="color: red"><b>*</b></span>
+                            <div class="invalid-feedback"></div>
                         </label>
                     </div>
                 </div>
@@ -243,6 +251,19 @@
         </form>
     </div>
     <script>
+    // Parsely Form Validation
+
+    // Parsley plugin initialization with tweaks to style Parsley for Bootstrap 4
+    $("#my-form").parsley({
+        errorClass: 'is-invalid text-danger',
+        successClass: 'is-valid', // Comment this option if you don't want the field to become green when valid. Recommended in Google material design to prevent too many hints for user experience. Only report when a field is wrong.
+        errorsWrapper: '<span class="form-text text-danger"></span>',
+        errorTemplate: '<span></span>',
+        trigger: 'change'
+    }) /* If you want to validate fields right after page loading, just add this here : .validate()*/ ;
+
+
+    /*
     // Disable form submissions if there are invalid fields
     (function() {
         'use strict';
@@ -261,7 +282,7 @@
             });
         }, false);
     })();
-
+    */
     // Tooltip Display
     $(function() {
         var targets = $('[rel~=tooltip]'),
