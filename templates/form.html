@@ -271,6 +271,23 @@
         inputs: 'input, textarea, select, input[type=hidden], :hidden',
     }) /* If you want to validate fields right after page loading, just add this here : .validate()*/ ;
 
+    $(function() {
+        $('#email').keyup(function() {
+            old_value = this.value;
+            this.value = this.value.toLowerCase();
+            if (old_value != this.value)
+                $('#email').change();
+        });
+    });
+
+    $(function() {
+        $('#confirmemail').keyup(function() {
+            old_value = this.value;
+            this.value = this.value.toLowerCase();
+            if (old_value != this.value)
+                $('#confirmemail').change();
+        });
+    });
 
     /*
     // Disable form submissions if there are invalid fields
