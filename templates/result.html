@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Results Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+</head>
+<style>
+#map {
+    height: 400px;
+    width: 600px;
+}
+</style>
+
+<body>
+    <div class="container" style="max-width: 600px">
+        <div class="alert alert-primary" role="alert" style="text-align: center; ">Results verification page Chaitali Kalra</div>
+        <h2 align="center">Results verification</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td colspan="2">Thank you for registering <b>{{ data.name }}</b>. Please find below your details:</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Name:</td>
+                    <td>{{ data.name }}</td>
+                </tr>
+                <tr>
+                    <td>Email ID:</td>
+                    <td>{{ data.email }}</td>
+                </tr>
+                <tr>
+                    <td>Address:</td>
+                    <td>{{ data.address }}</td>
+                </tr>
+                <tr>
+                    <td>Phone Number:</td>
+                    <td>{{ data.phone }}</td>
+                </tr>
+                <tr>
+                    <td>Education:</td>
+                    <td>{{ data.address }}</td>
+                </tr>
+                <tr>
+                    <td>Annual Income:</td>
+                    <td>{{ data.income }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="map" style="margin-left:auto; margin-right:auto;"></div>
+    <script>
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 16,
+            center: { lat: 37.721804, lng: -122.478231 }
+        });
+        var geocoder = new google.maps.Geocoder();
+        var address = "{{ data.map_address }}";
+        geocoder.geocode({ 'address': address }, function(results, status) {
+            if (status === 'OK') {
+                map.setCenter(results[0].geometry.location);
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: results[0].geometry.location
+                });
+            } else {
+                alert('Geocode was not successful for the following reason: ' + status);
+            }
+        });
+
+    }
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBNjrb6RxkSfQDRg5N-frWt3FZOlcNfWI&callback=initMap">
+    </script>
+</body>
+
+</html>
