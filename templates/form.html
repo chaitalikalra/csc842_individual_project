@@ -233,7 +233,6 @@
                 <div class="col">
                     <div class="form-group">
                         <div class="g-recaptcha" data-sitekey="6LcKxa4UAAAAADJ6F9ZjhuXSCUIgUy2z2EDZj6qy" data-callback="verifyRecaptchaCallback" data-expired-callback="expiredRecaptchaCallback"></div>
-                        <input type="hidden" id="verify-captcha2" value="" data-parsley-equalto="#verify-captcha" data-parsley-error-message="Please verify that you are not a robot." required>
                         <div class="invalid-feedback"></div>
                     </div>
                 </div>
@@ -255,8 +254,6 @@
     <script>
 
     var verifyRecaptchaCallback = function(response) {
-        $('#verify-captcha2').val($('#verify-captcha').val());
-        $('#verify-captcha2').parsley().reset()
       };
     // Parsely Form Validation
 
